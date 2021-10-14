@@ -1,8 +1,17 @@
-const div = document.createElement('div')
-const body = document.querySelector('body')
-div.innerText = "olá mundo"
-const header = document.querySelector("header")
-const form = body.querySelector('script')
+const buttonOpenModal = document.getElementById('openModal')
+const modalWrapper =  document.querySelector('.modal-wrapper')
 
-header.insertBefore(div,form)
- 
+buttonOpenModal.onclick = function(){
+    modalWrapper.classList.remove('invisible')
+}
+
+document.addEventListener('keydown' , function(event){
+    const isEscKey = event.key === 'Escape'
+
+    if(!modalWrapper.classList.contains('invisible') && isEscKey) {
+        modalWrapper.classList.add('invisible')
+    } else{
+        console.log('rodei')
+    }
+    
+})
